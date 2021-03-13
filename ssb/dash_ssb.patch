@@ -1,0 +1,63 @@
+diff --git a/src/allocator.h b/src/allocator.h
+index c257b80..9eb5165 100644
+--- a/src/allocator.h
++++ b/src/allocator.h
+@@ -21,8 +21,6 @@ struct Allocator {
+     instance_->epoch_manager_.Initialize();
+     instance_->garbage_list_.Initialize(&instance_->epoch_manager_,
+                                         instance_->pm_pool_, 1024 * 8);
+-    std::cout << "pool opened at: " << std::hex << instance_->pm_pool_
+-              << std::dec << std::endl;
+   }
+ 
+   static void Close_pool() {
+@@ -38,17 +36,14 @@ struct Allocator {
+ 
+   Allocator(const char* pool_name, size_t pool_size) {
+     if (!FileExists(pool_name)) {
+-      LOG("creating a new pool");
+-      pm_pool_ = pmemobj_create_addr(pool_name, layout_name, pool_size,
+-                                     CREATE_MODE_RW, (void*)pool_addr);
++      pm_pool_ = pmemobj_create(pool_name, layout_name, pool_size, CREATE_MODE_RW);
+       if (pm_pool_ == nullptr) {
+         LOG_FATAL("failed to create a pool;");
+       }
+       return;
+     }
+-    LOG("opening an existing pool, and trying to map to same address");
+     /* Need to open an existing persistent pool */
+-    pm_pool_ = pmemobj_open_addr(pool_name, layout_name, (void*)pool_addr);
++    pm_pool_ = pmemobj_open(pool_name, layout_name);
+     if (pm_pool_ == nullptr) {
+       LOG_FATAL("failed to open the pool");
+     }
+@@ -91,7 +86,7 @@ struct Allocator {
+   }
+ 
+   static void Persist(void* ptr, size_t size) {
+-    pmemobj_persist(instance_->pm_pool_, ptr, size);
++    // DO NOTHING HERE
+   }
+ 
+   static void NTWrite64(uint64_t* ptr, uint64_t val) {
+diff --git a/src/ex_finger.h b/src/ex_finger.h
+index 8054034..94ab8fc 100644
+--- a/src/ex_finger.h
++++ b/src/ex_finger.h
+@@ -1576,7 +1576,7 @@ class Finger_EH : public Hash<T> {
+ 
+   // just set the lock as 0
+   void Unlock_Directory(){
+-    __atomic_store_n(&lock, 0, __ATOMIC_RELEASE);    
++    __atomic_store_n(&lock, 0, __ATOMIC_RELEASE);
+   }
+ 
+   Directory<T> *dir;
+@@ -1688,7 +1688,6 @@ template <class T>
+ void Finger_EH<T>::Directory_Doubling(int x, Table<T> *new_b, Table<T> *old_b) {
+   Table<T> **d = dir->_;
+   auto global_depth = dir->global_depth;
+-  std::cout << "Directory_Doubling towards " << global_depth + 1 << std::endl;
+ 
+   auto capacity = pow(2, global_depth);
+   Directory<T>::New(&back_dir, 2 * capacity, dir->version + 1);
