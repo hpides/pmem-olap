@@ -6,7 +6,7 @@ from common import *
 
 
 def get_bandwidth(base_file, pin, x_vals, y_vals):
-    with open(f'{base_file}_{pin.lower()}_devdax.csv') as csvfile:
+    with open(f'{base_file}_{pin.lower()}.csv') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             threads = int(row[1])
@@ -28,7 +28,7 @@ def plot_bm(data_dir, plot_dir, mode):
 
     for (pin, data) in pinnings.items():
         x_vals, y_vals = pinnings[pin]
-        get_bandwidth(f"{data_dir}/{mode}_nt_pinning", pin, x_vals, y_vals)
+        get_bandwidth(f"{data_dir}/sequential_{mode}_pinning", pin, x_vals, y_vals)
         ax.plot(x_vals, y_vals, color=pin_to_color[pin], marker=pin_to_marker[pin],
                 markersize=8, label=pin)
 

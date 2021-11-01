@@ -6,7 +6,7 @@ from common import *
 
 
 def get_bandwidth(data_dir, mode, data):
-    with open(f'{data_dir}/mixed_{mode}_devdax.csv') as csvfile:
+    with open(f'{data_dir}/sequential_mixed_{mode}.csv') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             bandwidth = float(row[4]) / 1000

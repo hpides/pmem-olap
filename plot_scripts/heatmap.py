@@ -7,7 +7,7 @@ import sys
 from common import *
 
 def get_bandwidth(base_file, type, data):
-    with open(f'{base_file}_{type}.csv') as csvfile:
+    with open(f'{base_file}_{type}_fenced.csv') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             threads = int(row[1])
@@ -29,9 +29,10 @@ def plot_bm(data_dir, plot_dir, types):
     for i, (t, _) in enumerate(types):
         ax = axes[i]
         data = [[0 for x in range(11)] for y in range(36)]
-        get_bandwidth(f'{data_dir}/heatmap', t, data)
+        get_bandwidth(f'{data_dir}/sequential_write', t, data)
         im = ax.imshow(data, cmap=cmap, interpolation='bicubic', aspect='auto',
                        vmin=0, vmax=13)
+        print(data)
         ax.invert_yaxis()
         ax.set_xlabel('Access Size [Byte]', fontsize=18)
         ax.set_xticks(xticks)
@@ -61,7 +62,7 @@ if __name__ == '__main__':
 
     data_dir = sys.argv[1]
     plot_dir = sys.argv[2]
-    types = [("grouped", "Grouped Access"), ("individual", "Individual Access")]
+    types = [("log", "Grouped Access"), ("disjoint", "Individual Access")]
     plot_bm(data_dir, plot_dir, types)
 
     PRINT_PLOT_PATHS()

@@ -31,9 +31,9 @@ def plot_bm(data_dir, plot_dir):
     for (run, data) in runs.items():
         x_vals, y_vals = runs[run]
         if "2" in run:
-            f = f"{data_dir}/read_nt_far_socket_second_run"
+            f = f"{data_dir}/sequential_read_far_second"
         else:
-            f = f"{data_dir}/read_nt_{run}_socket"
+            f = f"{data_dir}/sequential_read_{run}"
 
         get_bandwidth(f, x_vals, y_vals)
         label = run.title() if "2" not in run else "2nd Far"

@@ -26,28 +26,18 @@ def plot_thread_data(file, ax, thread_counts, thread_to_data):
         get_bandwidth(file, tc, x_vals, y_vals)
         ax.plot(x_vals, y_vals, label=f'{tc}', color=THREAD_TO_COLOR[tc], marker=THREAD_TO_MARKER[tc])
 
-def get_max_seq_bandwidth(data_dir, file, thread_counts):
-    seq_file = "sequential_read" if "read" in file else "sequential_write"
-    seq_max = 0
-    for tc in thread_counts:
-        bandwidths = []
-        get_bandwidth(f'{data_dir}/{seq_file}_disjoint', tc, [], bandwidths)
-        seq_max = max(seq_max, max(bandwidths))
-    return seq_max
+
 
 def plot_bm(data_dir, dram_dir, plot_dir, file, thread_counts):
     plt.figure()
     fig, axes = plt.subplots(1, 2, figsize=(10, 2.5))
     pmem_ax, dram_ax = axes
 
-    seq_max = get_max_seq_bandwidth(dram_dir, file, thread_counts)
 
     for i, dir_ in enumerate((data_dir, dram_dir)):
         ax = axes[i]
         t2d = copy.deepcopy(BASE_THREAD_TO_DATA)
-        plot_thread_data(f"{dir_}/{file}_aligned", ax, thread_counts, t2d)
-        # ax.hlines(seq_max, xticks[0], xticks[-1], colors='red', linestyles='--', lw=2)
-        # ax.text(xticks[0], seq_max * 0.87, "seq. max", fontsize=16)
+        plot_thread_data(f"{dir_}/{file}", ax, thread_counts, t2d)
         max_ylim = 60 if "read" in file else 40
         ax.set_ylim(0, max_ylim)
         yticks = [x * 10 for x in range(max_ylim // 10 + 1)]

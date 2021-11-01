@@ -40,7 +40,7 @@ def individual_plot(data_dir, plot_dir, mode):
 
     for (var, data) in variants.items():
         x_vals, y_vals = data
-        get_bandwidth(f"{data_dir}/{var}_sequential_{mode}_disjoint_4096", var, x_vals, y_vals)
+        get_bandwidth(f"{data_dir}/sequential_{mode}_{var}", var, x_vals, y_vals)
         print(f"{mode}: {x_vals}")
         color, marker = VAR_TO_STYLE[var]
         label = var.replace('_', ' ').replace(' sockets', '').replace(' socket', '').title()
@@ -97,7 +97,7 @@ def combined_plot(data_dir, dram_dir, plot_dir, mode):
 
         for var, data in variants.items():
             x_vals, y_vals = data
-            get_bandwidth(f"{dir_}/{var}_sequential_{mode}_disjoint_4096", var, x_vals, y_vals)
+            get_bandwidth(f"{dir_}/sequential_{mode}_{var}", var, x_vals, y_vals)
             color, marker = VAR_TO_STYLE[var]
             label = var.replace('_', ' ').replace(' sockets', '').replace(' socket', '').title()
             labels.append(label)
