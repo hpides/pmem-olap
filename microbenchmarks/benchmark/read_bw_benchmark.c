@@ -287,13 +287,9 @@ void read_nt_random(struct thread_info* t_info){
         case 2048:
             read_nt_random_2048(t_info);
             return;
-        case 4096: {
-            // THREAD_LOOP
-            for (int i = 0; i < 100; i++) {
-                read_nt_random_4096(t_info);
-            }
+        case 4096:
+            read_nt_random_4096(t_info);
             return;
-        }
         case 8192:
             read_nt_random_8192(t_info);
             return;
