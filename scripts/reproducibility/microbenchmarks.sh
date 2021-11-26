@@ -207,8 +207,8 @@ do
         --read nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH --dram | tee -a "${RESULT_FOLDER_DRAM}/sequential_read_1_near_1_far.csv"    
 done
 
-# Figure 7
-a)
+# Figure 7/8
+# a)
 
 echo "Running benchmarks for Figure 7a)..."
 
@@ -451,7 +451,7 @@ do
         done
 done
 
-echo "Finished generation of all benchmarking results!. Now, please copy all data to your local machine, uncomment the second part bwlow this line of the script and comment out the part above this line and rerun the script."
+echo "Finished generation of all benchmarking results!. Now, please copy all data to your local machine, uncomment the second part below this line of the script and comment out the part above this line and rerun the script."
 
 # echo "Generating plots..."
 
