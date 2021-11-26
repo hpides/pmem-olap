@@ -32,7 +32,6 @@ def plot_bm(data_dir, plot_dir, types):
         get_bandwidth(f'{data_dir}/sequential_write', t, data)
         im = ax.imshow(data, cmap=cmap, interpolation='bicubic', aspect='auto',
                        vmin=0, vmax=13)
-        print(data)
         ax.invert_yaxis()
         ax.set_xlabel('Access Size [Byte]', fontsize=18)
         ax.set_xticks(xticks)
