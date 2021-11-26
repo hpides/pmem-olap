@@ -47,7 +47,7 @@ def plot_bm(data_dir, plot_dir):
     ax.set_xticklabels(xtick_labels)
     ax.yaxis.grid(True)
     ax.set_axisbelow(True)
-    ax.set_ylim(0, 4)
+    # ax.set_ylim(0, 4)
     ax.set_ylabel('Bandwidth [GB/s]', fontsize=18)
     ax.set_xlabel('Threads [#]', fontsize=18)
     SET_LABEL_SIZE(ax)
