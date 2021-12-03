@@ -52,7 +52,10 @@ We provide three implementations of the SSB, which can be found in ${REPOSITORY_
     While you can create them yourself, we DO NOT recommend doing this yourself and instead use the tables we provide via:
     a) Get the files via sftp: sftp <link provided in email>, then: get pmem-olap-reproducability-tables.tar.gz
     b) Unpack the tables: tar -xf pmem-olap-reproducability-tables.tar.gz
-    c) Copy the tables to both of your PMEM packages 
+    c) Copy the tables to both of your PMEM packages
+    There are two folders in the tables directory:
+        (hyrise) contains tables with a scaling factor of 50
+        (handcrafted) contains tables with a scaling factor of 100
 
     If you want to generate the tables yourself (NOT RECOMMENDED):
     a*) switch into ${REPOSITORY_ROOT}/ssb/ssb-dbgen
