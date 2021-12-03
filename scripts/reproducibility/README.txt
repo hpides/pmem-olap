@@ -30,10 +30,10 @@ D) Experimentation Info
 The reproducibilty contains two parts: 1. The microbenchmarks and 2. The Hyrise benchmarks.
 
 Microbenchmarks:
-1. Please have a look at the microbenchmarks.sh file and adjust the first 21 lines according to your system setup.
-Then, execute it on the server. This will take ~72 hours.
-2. Then, copy the microbenchmark.sh script and the result folders, bm_results and bm_results_plots, onto your local machine.
-3. Next, uncomment the second part below line 455 of the script and comment out the part above line 455 and rerun the script.
+1. Please have a look at the microbenchmarks.sh file and adjust the line 3 (for the remote benchmarking machine) and line 459 (for your local plot generation machine) according to your system setup.
+Then, execute the script on the server. This will take ~72 hours.
+2. Next, copy the microbenchmark.sh script and the result folders, bm_results and bm_results_plots, onto your local machine.
+3. Last, uncomment the second part below line 455 of the script and comment out the part above line 455 and rerun the script.
 4. Now you can find the final images in bm_results_plots.
 
 Hyrise:

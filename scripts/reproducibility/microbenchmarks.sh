@@ -1,8 +1,9 @@
 #!/bin/bash
 
-REPOSITORY_ROOT="/hpi/fs00/home/bjoern.daase/nvm-db-benchmark"
-BM_BINARY="${REPOSITORY_ROOT}/src/nvm_db_benchmark"
-BM_BINARY_FENCED="${REPOSITORY_ROOT}/src/nvm_db_benchmark_fenced"
+REPOSITORY_ROOT="/hpi/fs00/home/bjoern.daase/pmem-olap"
+
+BM_BINARY="${REPOSITORY_ROOT}/microbenchmarks/build/nvm_db_benchmark"
+BM_BINARY_FENCED="${REPOSITORY_ROOT}/microbenchmarks/build/nvm_db_benchmark_fenced"
 
 PLOT_SCRIPTS="${REPOSITORY_ROOT}/plot_scripts"
 
@@ -17,8 +18,8 @@ NUMA_SETTING1="numactl --cpunodebind=2,3 --membind=2,3"
 DEV_DAX0_PATH="/dev/dax0.0"
 DEV_DAX1_PATH="/dev/dax1.1"
 
-MAPPING_FILE0="${REPOSITORY_ROOT}/src/mapping_files/socket_1_split"
-MAPPING_FILE1="${REPOSITORY_ROOT}/src/mapping_files/socket_2_split"
+MAPPING_FILE0="${REPOSITORY_ROOT}/microbenchmarks/mapping_files/socket_1_split"
+MAPPING_FILE1="${REPOSITORY_ROOT}/microbenchmarks/mapping_files/socket_2_split"
 
 if [ -d $RESULT_FOLDER ]; then
 	echo "Resultfolder ${RESULT_FOLDER} already exists. Remove it, before starting to benchmark."
@@ -456,6 +457,7 @@ echo "Finished generation of all benchmarking results!. Now, please copy all dat
 # echo "Generating plots..."
 
 # REPOSITORY_ROOT="/home/bjoern/HPI/Master/Data_Processing_on_Modern_Hardware/pmem-olap"
+
 # PLOT_SCRIPTS="${REPOSITORY_ROOT}/plot_scripts"
 # RESULT_FOLDER="/home/bjoern/bm_results"
 # RESULT_FOLDER_PMEM="${RESULT_FOLDER}/pmem"
