@@ -30,11 +30,15 @@ D) Experimentation Info
 The reproducibilty contains two parts: 1. The microbenchmarks and 2. The Hyrise benchmarks.
 
 Microbenchmarks:
-1. First, build the benchmarking binaries by following the instructions in ${REPOSITORY_ROOT}/microbenchmarks/README.md
-2. Please have a look at the microbenchmarks.sh file and adjust the line 3 (for the remote benchmarking machine) and line 459 (for your local plot generation machine) according to your system setup.
+---PMEM Server---
+1. First, on the PMEM server, build the benchmarking binaries by following the instructions in ${REPOSITORY_ROOT}/microbenchmarks/README.md.
+2. Please have a look at the microbenchmarks.sh file and adjust line 3 according to your system setup.
 Then, execute the script on the server. This will take ~72 hours.
-3. Next, copy the microbenchmark.sh script and the result folders, bm_results and bm_results_plots, onto your local machine.
-4. Last, uncomment the second part below line 455 of the script and comment out the part above line 455 and rerun the script.
+3. Next, copy the microbenchmark.sh script and the result folders, bm_results and bm_results_plots, onto your local machine (this is necessary because we do not have permissions to install the
+required python packages on our server).
+---Local Plot Generation Machine---
+4. On your local copy of the repository, uncomment the second part below line 455 of the microbenchmarks.sh file and comment out the part above line 455 and rerun the script.
+Also, adjust line 459 according to your system setup.
 5. Now you can find the final images in bm_results_plots.
 
 Hyrise:
