@@ -1,0 +1,66 @@
+# Project Files unneeded by docker
+.dockerignore
+
+.git
+.gitignore
+
+.travis.yml
+.travis
+.appveyor.yml
+.github
+
+.clang-format
+
+# Bazel
+bazel/doc
+bazel/README.md
+bazel/cache
+bazel/docker
+bazel/Makefile
+
+# CMake
+cmake/doc
+cmake/README.md
+cmake/cache
+cmake/docker
+cmake/Makefile
+
+# Makefile
+makefiles/doc
+makefiles/README.md
+makefiles/cache
+makefiles/docker
+makefiles/Makefile
+Makefile.local
+
+binder
+docs
+tools/docker
+tools/release
+tools/win
+Dependencies.txt
+README.md
+CONTRIBUTING.md
+#LICENSE-2.0.txt
+
+# Native CMake/Make build
+classes
+dependencies/sources
+dependencies/install
+ortools/gen
+objs
+lib
+bin
+packages
+build/
+examples/data/vector_packing
+examples/data/rcpsp
+examples/data/binpacking
+examples/data/spp
+examples/data/scp
+examples/data/roadef_challenge_2011
+examples/data/cvrptw
+
+# Editor directories and files
+*.user
+*.swp

@@ -1,0 +1,6 @@
+{
+  "__comment__": "The paths below must be adjusted to a 1) pmem folder or 2) pmem dev-dax device",
+  "pooldir": "/mnt/pmem2/lars.bollmeier/hyrise-tmp",
+  "poolfile": "/dev/dax1.1"
+  
+}

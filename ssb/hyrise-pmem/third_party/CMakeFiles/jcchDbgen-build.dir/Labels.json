@@ -1,0 +1,40 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/CMakeFiles/jcchDbgen-build"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/CMakeFiles/jcchDbgen-build.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-build.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-configure.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-check_for_changes.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-patch.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-update.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-download.rule"
+		},
+		{
+			"file" : "/hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcchDbgen-prefix/src/jcchDbgen-stamp/jcchDbgen-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"jcchDbgen"
+		],
+		"name" : "jcchDbgen-build"
+	}
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -fopenmp-simd -O0  -O0 -shared -Wl,-soname,libhyriseTestNonInstantiablePlugin.so -o ../../lib/libhyriseTestNonInstantiablePlugin.so CMakeFiles/hyriseTestNonInstantiablePlugin.dir/non_instantiable_plugin.cpp.o 

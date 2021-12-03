@@ -1,0 +1,7 @@
+{
+    "config": {
+      "null_handling": "null_string_as_null"
+    },
+    "columns": [
+    ]
+}

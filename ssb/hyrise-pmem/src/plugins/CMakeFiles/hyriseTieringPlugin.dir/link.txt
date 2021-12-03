@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -fopenmp-simd -O0  -O0 -shared -Wl,-soname,libhyriseTieringPlugin.so -o ../../lib/libhyriseTieringPlugin.so CMakeFiles/hyriseTieringPlugin.dir/tiering_plugin.cpp.o 

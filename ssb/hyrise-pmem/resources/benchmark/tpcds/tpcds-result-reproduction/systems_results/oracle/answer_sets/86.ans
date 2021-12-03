@@ -1,0 +1,7 @@
+SP2-0734: unknown command beginning results_ro..." - rest of line ignored.
+select
+*
+ERROR at line 6:
+ORA-00933: SQL command not properly ended 
+
+

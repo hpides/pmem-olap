@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -fopenmp-simd -O0  -O0 -shared -Wl,-soname,libhyriseMvccDeletePlugin.so -o ../../lib/libhyriseMvccDeletePlugin.so CMakeFiles/hyriseMvccDeletePlugin.dir/mvcc_delete_plugin.cpp.o 

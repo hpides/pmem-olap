@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-noexcept.dir/src/unit-noexcept.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-noexcept 

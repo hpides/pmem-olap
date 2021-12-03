@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -fopenmp-simd -O0  -O0 -shared -Wl,-soname,libhyriseTestPlugin.so -o ../../lib/libhyriseTestPlugin.so CMakeFiles/hyriseTestPlugin.dir/test_plugin.cpp.o 

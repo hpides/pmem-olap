@@ -1,0 +1,1 @@
+cmd='bash;-c;cp -r /hpi/fs00/home/lars.bollmeier/hyrise/third_party/jcch-dbgen/* .'

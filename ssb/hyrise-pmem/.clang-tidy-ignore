@@ -1,0 +1,3 @@
+# Used by clang_tidy_wrapper.sh, no wildcards etc. supported
+
+src/benchmarklib/tpcc/tpcc_table_generator.cpp  # suggested fixes make compile time worse

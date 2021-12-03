@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-iterators1.dir/src/unit-iterators1.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-iterators1 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-serialization.dir/src/unit-serialization.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-serialization 

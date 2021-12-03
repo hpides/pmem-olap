@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-constructor1.dir/src/unit-constructor1.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-constructor1 
