@@ -49,10 +49,11 @@ We provide three implementations of the SSB, which can be found in ${REPOSITORY_
 
 0. Get the required tables
     Both the handcrafted version as well as the HYRISE version require pre-generated tables to work.
-    While you can create them yourself, we DO NOT recommend doing this yourself and instead use the tables we provide via:
-    a) Get the files via sftp: sftp <link provided in email>, then: get pmem-olap-reproducability-tables.tar.gz
-    b) Unpack the tables: tar -xf pmem-olap-reproducability-tables.tar.gz
-    c) Copy the tables to both of your PMEM packages
+    While you can create them yourself, we DO NOT recommend doing this yourself and instead use the tables we provide.
+    If your working on our servers, those can be found at /mnt/nvme3/reproducability/pmem-olap-reproducability-tables.
+    Otherwise, if you are reproducing the results on your own machine, please drop us an e-mail so we can send you a file sharing link.
+
+    Then. copy the tables to both of your PMEM packages
     There are two folders in the tables directory:
         (hyrise) contains tables with a scaling factor of 50
         (handcrafted) contains tables with a scaling factor of 100
