@@ -27,7 +27,7 @@ If you need access to this kind of hardware (especially PMEM), please drop us an
 
 
 D) Experimentation Info
-The reproducibilty contains two parts: 1. The microbenchmarks and 2. The Hyrise benchmarks.
+The reproducibilty contains two parts: 1. The microbenchmarks and 2. The Star Schema benchmarks.
 
 Microbenchmarks:
 ---PMEM Server---
@@ -41,4 +41,39 @@ required python packages on our server).
 Also, adjust line 459 according to your system setup.
 5. Now you can find the final images in bm_results_plots.
 
-Hyrise:
+Star Schema Benchmarks(SSB):
+We provide three implementations of the SSB, which can be found in ${REPOSITORY_ROOT}/ssb.
+1. (handcrafted) A handcrafted version using fixed tuple sizes and Dash
+2. (hyrise-dram) Using the HYRISE column-store database on DRAM
+3. (hyrise-pmem) Using the HYRISE column-store database storing all tables and intermediates in PMEM
+
+0. Get the required tables
+    Both the handcrafted version as well as the HYRISE version require pre-generated tables to work.
+    While you can create them yourself, we DO NOT recommend doing this yourself and instead use the tables we provide via:
+    a) Get the files via sftp: sftp <link provided in email>, then: get pmem-olap-reproducability-tables.tar.gz
+    b) Unpack the tables: tar -xf pmem-olap-reproducability-tables.tar.gz
+    c) Copy the tables to both of your PMEM packages 
+
+    If you want to generate the tables yourself (NOT RECOMMENDED):
+    a*) switch into ${REPOSITORY_ROOT}/ssb/ssb-dbgen
+    ba*) For HYRISE: Run make; ./dbgen -s 100
+    bb*) For handcrafted: Run make; ./dbgen -s 50
+    ca*) For HYRISE: Copy the tables to both of your PMEM packages
+    cb*) For handcrafted: Align the format of the tables to 128byte, with field widths according to ${REPOSITORY_ROOT}/ssb/handcrafted/ssb.cpp and copy the resulting tables to both of your PMEM packages.
+
+1. Handcrafted:
+    a)  Build the binaries according to ${REPOSITORY_ROOT}/ssb/handcrafted/README.md
+    b)  Change the paths in  ${REPOSITORY_ROOT}/scripts/reproducability/ssb/run_ssb.sh to match your binaries,
+        as well as your devdax paths.
+    c) If necessary, rm -r ${REPOSITORY_ROOT}/bm_results  ${REPOSITORY_ROOT}/bm_results_plots    
+    d) Run 
+        ${REPOSITORY_ROOT}/scripts/reproducability/ssb/run_ssb.sh 
+        to produce .csvs containing the results in ${REPOSITORY_ROOT}/bm_results
+
+2/3. Hyrise DRAM/PMEM:
+    The instructions to run the SSB on PMEM and DRAM are very similar:
+    a) Build the binaries according to ${REPOSITORY_ROOT}/ssb/hyrise-*/README.md
+    b) Second, from your build folder (assuming ${REPOSITORY_ROOT}/ssb/hyrise-*/build), run
+        ./hyriseBenchmarkFileBased --query_path ../queries --table_path /path/to/your/tables
+        to get the results from each query printed to stdout.
+

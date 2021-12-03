@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PMEM_BINARY="/hpi/fs00/home/lawrence.benson/nvm-db-benchmark/ssb/ssb_pmem.out"
-DRAM_BINARY="/hpi/fs00/home/lawrence.benson/nvm-db-benchmark/ssb/ssb_dram.out"
+PMEM_BINARY="/YOUR_PATH_TO/ssb_pmem.out"
+DRAM_BINARY="/YOUR_PATH_TO/ssb_dram.out"
 
 RESULT_FOLDER="bm_results"
 DEV_DAX_PATH1="/dev/dax0.0"
@@ -13,46 +13,46 @@ if [ -d $RESULT_FOLDER ]; then
 fi
 mkdir $RESULT_FOLDER
 
-# declare -a QFS=("1" "2" "3" "4")
-# declare -a QUERIES=("1" "2" "3" "4")
+declare -a QFS=("1" "2" "3" "4")
+declare -a QUERIES=("1" "2" "3" "4")
 
-# # All Queries
-# for qf in "${QFS[@]}"
-# do
-#     for q in "${QUERIES[@]}"
-#     do
-#         if [ $qf != "3" ] && [ $q == "4" ]; then
-#             continue
-#         fi
+# All Queries
+for qf in "${QFS[@]}"
+do
+    for q in "${QUERIES[@]}"
+    do
+        if [ $qf != "3" ] && [ $q == "4" ]; then
+            continue
+        fi
 
-#         $PMEM_BINARY $qf $q 4096 18 1 1 1 | tee -a "${RESULT_FOLDER}/ssb_pmem.csv"
-#         $DRAM_BINARY $qf $q 4096 18 1 1 1 | tee -a "${RESULT_FOLDER}/ssb_dram.csv"
-#     done
-# done
+        $PMEM_BINARY $qf $q 4096 18 1 1 1 | tee -a "${RESULT_FOLDER}/ssb_pmem.csv"
+        $DRAM_BINARY $qf $q 4096 18 1 1 1 | tee -a "${RESULT_FOLDER}/ssb_dram.csv"
+    done
+done
 
-# # Optimization Steps
-# PMEM_RESULTS="${RESULT_FOLDER}/ssb_pmem_opt_steps.csv"
-# DRAM_RESULTS="${RESULT_FOLDER}/ssb_dram_opt_steps.csv"
+# Optimization Steps
+PMEM_RESULTS="${RESULT_FOLDER}/ssb_pmem_opt_steps.csv"
+DRAM_RESULTS="${RESULT_FOLDER}/ssb_dram_opt_steps.csv"
 
-# echo "Single Threaded"
-# $PMEM_BINARY 2 1 4096 1 0 0 0 | tee -a $PMEM_RESULTS
-# $DRAM_BINARY 2 1 4096 1 0 0 0 | tee -a $DRAM_RESULTS
+echo "Single Threaded"
+$PMEM_BINARY 2 1 4096 1 0 0 0 | tee -a $PMEM_RESULTS
+$DRAM_BINARY 2 1 4096 1 0 0 0 | tee -a $DRAM_RESULTS
 
-# echo "Multi Threaded"
-# $PMEM_BINARY 2 1 4096 18 0 0 0 | tee -a $PMEM_RESULTS
-# $DRAM_BINARY 2 1 4096 18 0 0 0 | tee -a $DRAM_RESULTS
+echo "Multi Threaded"
+$PMEM_BINARY 2 1 4096 18 0 0 0 | tee -a $PMEM_RESULTS
+$DRAM_BINARY 2 1 4096 18 0 0 0 | tee -a $DRAM_RESULTS
 
-# echo "Multi-Socket"
-# $PMEM_BINARY 2 1 4096 18 0 1 0 | tee -a $PMEM_RESULTS
-# $DRAM_BINARY 2 1 4096 18 0 1 0 | tee -a $DRAM_RESULTS
+echo "Multi-Socket"
+$PMEM_BINARY 2 1 4096 18 0 1 0 | tee -a $PMEM_RESULTS
+$DRAM_BINARY 2 1 4096 18 0 1 0 | tee -a $DRAM_RESULTS
 
-# echo "NUMA"
-# $PMEM_BINARY 2 1 4096 18 0 1 1 | tee -a $PMEM_RESULTS
-# $DRAM_BINARY 2 1 4096 18 0 1 1 | tee -a $DRAM_RESULTS
+echo "NUMA"
+$PMEM_BINARY 2 1 4096 18 0 1 1 | tee -a $PMEM_RESULTS
+$DRAM_BINARY 2 1 4096 18 0 1 1 | tee -a $DRAM_RESULTS
 
-# echo "Explicit Pinning"
-# $PMEM_BINARY 2 1 4096 18 1 1 1 | tee -a $PMEM_RESULTS
-# $DRAM_BINARY 2 1 4096 18 1 1 1 | tee -a $DRAM_RESULTS
+echo "Explicit Pinning"
+$PMEM_BINARY 2 1 4096 18 1 1 1 | tee -a $PMEM_RESULTS
+$DRAM_BINARY 2 1 4096 18 1 1 1 | tee -a $DRAM_RESULTS
 
 
 # Multiple Workers
