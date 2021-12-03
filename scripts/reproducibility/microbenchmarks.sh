@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY_ROOT="/hpi/fs00/home/bjoern.daase/pmem-olap"
+REPOSITORY_ROOT="/YOUR_PATH_TO_PMEM_OLAP_REPO"
 
 BM_BINARY="${REPOSITORY_ROOT}/microbenchmarks/build/nvm_db_benchmark"
 BM_BINARY_FENCED="${REPOSITORY_ROOT}/microbenchmarks/build/nvm_db_benchmark_fenced"
@@ -456,7 +456,7 @@ echo "Finished generation of all benchmarking results!. Now, please copy all dat
 
 # echo "Generating plots..."
 
-# REPOSITORY_ROOT="/home/bjoern/HPI/Master/Data_Processing_on_Modern_Hardware/pmem-olap"
+# REPOSITORY_ROOT="/YOUR_PATH_TO_PMEM_OLAP_REPO"
 
 # PLOT_SCRIPTS="${REPOSITORY_ROOT}/plot_scripts"
 # RESULT_FOLDER="/home/bjoern/bm_results"

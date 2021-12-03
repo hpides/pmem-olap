@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PMEM_BINARY="/YOUR_PATH_TO/ssb_pmem.out"
-DRAM_BINARY="/YOUR_PATH_TO/ssb_dram.out"
+PMEM_BINARY="/YOUR_PATH_TO_PMEM_OLAP_REPO/ssb/ssb_pmem.out"
+DRAM_BINARY="/YOUR_PATH_TO_PMEM_OLAP_REPO/ssb_dram.out"
 
 RESULT_FOLDER="bm_results"
 DEV_DAX_PATH1="/dev/dax0.0"
