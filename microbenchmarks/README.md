@@ -12,7 +12,7 @@ cmake ..
 cmake --build .
 ```
 
-This will give you a `nvm_db_benchmark` binary which then can be used in the benchmarking scripts.
+This will give you a `nvm_db_benchmark` and `nvm_db_benchmark_fenced` binary which then can be used in the benchmarking scripts.
 
 ## Usage
 
