@@ -20,7 +20,6 @@ For both versions, adjust the HINTS in /cmake/FindXXXX.cmake to link to your lib
 
 Now, the binaries for benchmarking the SSB can be build:
 ```sh
-cd hyrise-pmem #same for hyrise-dram
 mkdir build
 cd build
 cmake .. -DHYRISE_WITH_MEMKIND -DCMAKE_BUILD_TYPE=Release
