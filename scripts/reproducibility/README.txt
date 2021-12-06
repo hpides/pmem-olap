@@ -11,7 +11,9 @@ Programming language: C++/C/Assembly
 
 B)
 The data for the microbenchmarks will be generated on the fly.
-The tables for the Hyrise benchamrks can be found here: 
+
+The tables for the SSB can be found at /mnt/nvme3/reproducability/pmem-olap-reproducability-tables if you are working on our servers.
+Otherwise, if you are reproducing the results on your own machine, please drop us an e-mail so we can send you a file sharing link.
 
 
 
