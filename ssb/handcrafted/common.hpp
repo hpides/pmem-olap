@@ -5,8 +5,8 @@
 #include "allocator.h"
 #include "libpmem.h"
 
-#define SOCKET_1_PATH "/mnt/nvrams1/ssb/"
-#define SOCKET_2_PATH "/mnt/nvrams2/ssb/"
+#define SOCKET_1_PATH "/mnt/pmem1/ssb/"
+#define SOCKET_2_PATH "/mnt/pmem2/ssb/"
 
 #define LO_TAB_PATH   "lineorder_sf100_full_random.tbl"
 #define LO_TAB_A_PATH "lineorder_sf100_a.tbl"
@@ -42,8 +42,11 @@ using HashTableT = extendible::Finger_EH<uint64_t>;
 
 void init_table(const char *path, HashTableT** ht) {
     if (std::filesystem::exists(path) && Allocator::Get() == nullptr) {
-        std::cerr << "Remove old tmp files at " << path << std::endl;
-        exit(1);
+        std::cout << "Trying to remove existing tmp files at " << path << std::endl;
+        if (!std::filesystem::remove(path)) {
+            std::cerr << "Failed to remove old files at " << path << std::endl;
+            exit(1);
+        }
     }
 
     if (!std::filesystem::exists(path)) {
