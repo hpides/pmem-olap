@@ -22,7 +22,7 @@ Now, the binaries for benchmarking the SSB can be build:
 ```sh
 mkdir build
 cd build
-cmake .. -DHYRISE_WITH_MEMKIND -DCMAKE_BUILD_TYPE=Release
+cmake .. -DHYRISE_WITH_MEMKIND=TRUE -DCMAKE_BUILD_TYPE=Release
 make hyriseBenchmarkFileBased -j
 ```
 

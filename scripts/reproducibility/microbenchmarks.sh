@@ -280,6 +280,42 @@ declare -a THREADS=("1" "2" "4" "6" "8" "18" "24" "36")
 for threads in "${THREADS[@]}"
 do
     $NUMA_SETTING1 $BM_BINARY_FENCED \
+        --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH > /dev/null
+    $NUMA_SETTING1 $BM_BINARY_FENCED \
+        --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH | tee -a "${RESULT_FOLDER_PMEM}/sequential_write_1_near.csv"
+
+    $NUMA_SETTING0 $BM_BINARY_FENCED \
+        --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH  > /dev/null
+    $NUMA_SETTING0 $BM_BINARY_FENCED \
+        --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH | tee -a "${RESULT_FOLDER_PMEM}/sequential_write_1_far.csv"
+
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX0_PATH  \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH  > /dev/null
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX0_PATH  \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH | tee -a "${RESULT_FOLDER_PMEM}/sequential_write_2_near.csv"
+
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH  \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX0_PATH  > /dev/null
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX0_PATH | tee -a "${RESULT_FOLDER_PMEM}/sequential_write_2_far.csv"   
+
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH > /dev/null
+    $BM_BINARY_FENCED \
+        --write nt --numa "0,1" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH \
+        --write nt --numa "2,3" --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH | tee -a "${RESULT_FOLDER_PMEM}/sequential_write_1_near_1_far.csv"    
+done
+
+declare -a THREADS=("1" "2" "4" "6" "8" "18" "24" "36")
+
+for threads in "${THREADS[@]}"
+do
+    $NUMA_SETTING1 $BM_BINARY_FENCED \
         --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH --dram > /dev/null
     $NUMA_SETTING1 $BM_BINARY_FENCED \
         --write nt --access_pattern disjoint --measure_group 0 --threads $threads --ad 4096 --package $DEV_DAX1_PATH --dram | tee -a "${RESULT_FOLDER_DRAM}/sequential_write_1_near.csv"
