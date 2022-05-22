@@ -40,6 +40,7 @@ required python packages on our server).
 ---Local Plot Generation Machine---
 4. On your local copy of the repository, uncomment the second part below line 455 of the microbenchmarks.sh file and comment out the part above line 455 and rerun the script.
 Also, adjust line 459 according to your system setup.
+    4.1 For Figure 12 and 13 please change the DEVDAXSIZE in microbenchmarks/include/common.h to 2GB and build it again, then run microbenchmarks-random.sh
 5. Now you can find the final images in bm_results_plots.
 
 Star Schema Benchmarks(SSB):
