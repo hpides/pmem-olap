@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-ubjson.dir/src/unit-ubjson.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-ubjson 

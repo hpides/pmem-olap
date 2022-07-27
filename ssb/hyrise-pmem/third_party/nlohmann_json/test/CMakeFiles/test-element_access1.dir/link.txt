@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-element_access1.dir/src/unit-element_access1.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-element_access1 

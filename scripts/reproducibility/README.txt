@@ -43,7 +43,7 @@ Also, adjust line 459 according to your system setup.
 5. Now you can find the final images in bm_results_plots.
 
 Star Schema Benchmarks(SSB):
-**NOTE:** Our partial setup of Hyrise is rather tricky and it might not work out of the box on your server.
+**NOTE: The code provided for Hyrise in this repository is not sufficient to build Hyrise with all its dependencies. It is only provided for reference.**
 We provide three implementations of the SSB, which can be found in ${REPOSITORY_ROOT}/ssb.
 1. (handcrafted) A handcrafted version using fixed tuple sizes and Dash
 2. (hyrise-dram) Using the HYRISE column-store database on DRAM

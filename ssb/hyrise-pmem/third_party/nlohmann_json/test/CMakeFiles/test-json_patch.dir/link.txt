@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-json_patch.dir/src/unit-json_patch.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-json_patch 

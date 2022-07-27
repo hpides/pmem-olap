@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -fopenmp-simd -O0 -Wl,--export-dynamic  -O0 -rdynamic CMakeFiles/test-alt-string.dir/src/unit-alt-string.cpp.o CMakeFiles/doctest_main.dir/src/unit.cpp.o -o ../../../test-alt-string 
