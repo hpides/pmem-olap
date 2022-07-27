@@ -29,7 +29,7 @@ You probably want to step through theses directories in the following order
 1. Start by building the binaries in `microbenchmarks`.
 2. Use (or get inspired by) the benchmarking scripts in `scripts` to generate data.
 3. Visualize this data with the plotting scripts found in `plot_scripts`.
-4. You can explore the code/setup in `ssb` if you are interested in the SSB benchmarks. THe setup is rather complex and we have removed all of Hyrise's dependencies, so this code will not be able to build out of the box. The code is only provided for reference.
+4. You can explore the code/setup in `ssb` if you are interested in the SSB benchmarks. The setup is rather complex and we have removed all of Hyrise's dependencies, so this code will not be able to build out of the box. The code is only provided for reference.
 
 
 ## License
