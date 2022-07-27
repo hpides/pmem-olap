@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 MIN_THREADS=1
 MAX_THREADS=100

@@ -26,9 +26,10 @@ Directory | Description
 
 You probably want to step through theses directories in the following order
 
-1. Start by either building the binaries in `microbenchmarks` (if you are interested in the microbenchmarks) or in `ssb` (if you are interested in the SSB)
-2. Use (or get inspired by) the benchmarking scripts in `scripts` to generate data
-3. Visualize this data with the plotting scripts found in `plot_scripts`
+1. Start by building the binaries in `microbenchmarks`.
+2. Use (or get inspired by) the benchmarking scripts in `scripts` to generate data.
+3. Visualize this data with the plotting scripts found in `plot_scripts`.
+4. You can explore the code/setup in `ssb` if you are interested in the SSB benchmarks. But the setup is rather complex and will most likely not work out of the box on your server.
 
 
 ## License
