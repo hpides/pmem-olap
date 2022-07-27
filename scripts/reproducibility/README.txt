@@ -7,8 +7,6 @@ A) Source code info
 URL to the code: https://github.com/hpides/pmem-olap
 Programming language: C++/C/Assembly
 
-
-
 B)
 The data for the microbenchmarks will be generated on the fly.
 
@@ -30,6 +28,7 @@ D) Experimentation Info
 The reproducibilty contains two parts: 1. The microbenchmarks and 2. The Star Schema benchmarks.
 
 Microbenchmarks:
+**NOTE: For reproducibility, please use the scripts in `scripts/reproducibility` as they are generic. The scripts in `scripts/microbenchmarks` are internal and you will have to adjust the paths to the binaries manually.**
 ---PMEM Server---
 1. First, on the PMEM server, build the benchmarking binaries by following the instructions in ${REPOSITORY_ROOT}/microbenchmarks/README.md.
 2. Please have a look at the reproducibility/microbenchmarks.sh file and adjust line 3 according to your system setup. Then, execute the script on the server. This will take ~72 hours. Make sure you have 4 NUMA sockets available or adjust the numa bindings in the scripts to match your setup.
@@ -37,8 +36,8 @@ Microbenchmarks:
 required python packages on our server).
 
 ---Local Plot Generation Machine---
-4. On your local copy of the repository, uncomment the second part below line 455 of the microbenchmarks.sh file and comment out the part above line 455 and rerun the script.
-Also, adjust line 459 according to your system setup.
+4. On your local copy of the repository, uncomment the second part below line 417 of the microbenchmarks.sh file and comment out the part above line 417 and rerun the script.
+Also, adjust line 422 according to your system setup.
     4.1 For Figure 12 and 13 please change the DEVDAXSIZE in microbenchmarks/include/common.h to 2GB and build it again, then run microbenchmarks-random.sh
 5. Now you can find the final images in bm_results_plots.
 
