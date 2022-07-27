@@ -1,3 +1,0 @@
-COUNT(*)|SUM(a + b)
-long|long_null
-8|115

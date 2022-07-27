@@ -1,9 +1,0 @@
-{
-    "columns": [
-        {
-            "name": "a",
-            "nullable": false,
-            "type": "float"
-        }
-    ]
-}
